@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Products - Pink Boutique</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <%- include('partials/header'); %>
+  <h2>Products</h2>
+  <section class="products">
+    <% products.forEach(p => { %>
+      <div class="product">
+        <img src="<%= p.image %>" alt="<%= p.name %>" />
+        <h3><%= p.name %></h3>
+        <p>$<%= p.price %></p>
+        <a href="/product/<%= p.id %>">View</a>
+      </div>
+    <% }) %>
+  </section>
+</body>
+</html>

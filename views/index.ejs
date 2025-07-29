@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pink Boutique</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Pink Boutique</h1>
+    <nav>
+      <% if (currentUser) { %>
+        <a href="/logout">Logout</a>
+        <a href="/orders">My Orders</a>
+        <% if (currentUser.isAdmin) { %>
+        <a href="/admin/products">Admin</a>
+        <% } %>
+      <% } else { %>
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+      <% } %>
+      <a href="/cart">Cart (<%= (session.cart || []).length %>)</a>
+    </nav>
+  </header>
+  <section class="banner">
+    <h2>Welcome to our store</h2>
+  </section>
+  <section class="products">
+    <% products.forEach(p => { %>
+      <div class="product">
+        <img src="<%= p.image %>" alt="<%= p.name %>" />
+        <h3><%= p.name %></h3>
+        <p>$<%= p.price %></p>
+        <a href="/product/<%= p.id %>">View</a>
+      </div>
+    <% }) %>
+  </section>
+</body>
+</html>

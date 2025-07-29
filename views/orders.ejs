@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Orders - Pink Boutique</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <%- include('partials/header'); %>
+  <h2>My Orders</h2>
+  <% if (!orders.length) { %>
+    <p>No orders yet.</p>
+  <% } else { %>
+    <ul>
+      <% orders.forEach(o => { %>
+        <li>Order #<%= o.id %> - $<%= o.total %> - <%= o.createdAt %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+</body>
+</html>

@@ -1,0 +1,8 @@
+body { font-family: 'Montserrat', sans-serif; background: #fff; color: #333; margin:0; }
+header { background:#ffe6f2; padding:10px; display:flex; justify-content:space-between; align-items:center; }
+header a { margin:0 5px; color:#d63384; text-decoration:none; }
+.banner { background:#ffd6e7; padding:40px; text-align:center; }
+.products { display:flex; flex-wrap:wrap; gap:20px; padding:20px; }
+.product { border:1px solid #f8c1d8; padding:10px; width:200px; text-align:center; background:#fff; transition:transform .2s; }
+.product:hover { transform:scale(1.05); }
+.error { color:red; }

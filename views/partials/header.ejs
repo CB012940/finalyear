@@ -1,0 +1,16 @@
+<header>
+  <h1><a href="/">Pink Boutique</a></h1>
+  <nav>
+    <% if (currentUser) { %>
+      <a href="/logout">Logout</a>
+      <a href="/orders">My Orders</a>
+      <% if (currentUser.isAdmin) { %>
+      <a href="/admin/products">Admin</a>
+      <% } %>
+    <% } else { %>
+      <a href="/login">Login</a>
+      <a href="/signup">Signup</a>
+    <% } %>
+    <a href="/cart">Cart (<%= (session.cart || []).length %>)</a>
+  </nav>
+</header>

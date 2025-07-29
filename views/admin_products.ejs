@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - Products</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <%- include('partials/header'); %>
+  <h2>Manage Products</h2>
+  <a href="/admin/products/new">Add Product</a>
+  <table>
+    <tr><th>Name</th><th>Price</th><th>Actions</th></tr>
+    <% products.forEach(p => { %>
+    <tr>
+      <td><%= p.name %></td>
+      <td>$<%= p.price %></td>
+      <td>
+        <a href="/admin/products/edit/<%= p.id %>">Edit</a>
+        <form method="post" action="/admin/products/delete/<%= p.id %>" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
